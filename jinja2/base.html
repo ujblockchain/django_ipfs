@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJIPFS</title>
+    <link rel="shortcut icon" href="{{ static('images/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ static('styles/main.css') }}">
+  </head>
+
+  <body class="job-review-body">
+    <nav class="nav">
+      <div>
+        <a href="{{ url('home') }}" class="logo logo--dark">DjIPFS</a>
+      </div>
+    </nav>
+
+    {# block content #}
+    {% block content %}{% endblock content %}
+  </body>
+</html>

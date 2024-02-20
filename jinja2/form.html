@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main class="job-review">
+    <div class="job-review__wrapper">
+      <div class="job-review__container">
+        <div class="job-review__controls">
+          <div></div>
+
+          <h1 class="title">Upload File To IPFS</h1>
+
+          <a href="javascript:history.back()">
+            <img
+              src="{{ static('images/icons/close.webp') }}"
+              alt="close"
+              class="job-request__icon"
+            >
+          </a>
+        </div>
+
+        <p class="job-review__text">
+          Kindly fill file details.
+        </p>
+
+        <form class="form job-review__form">
+          <div class="form__row">
+            <input
+              type="text"
+              name="job-id"
+              id="job-id"
+              placeholder="File Name"
+              class="form__field"
+            >
+          </div>
+          <br>
+          <div class="form__row">
+            <input
+              type="file"
+              id="avatar"
+              name="avatar"
+              class="account-setting__avatar"
+            />
+          </div>
+
+          <br>
+          <div class="form__row">
+            <textarea
+              name=""
+              id=""
+              cols="10"
+              rows="8"
+              placeholder="File Description"
+              class="form__field form__field--textarea"
+            ></textarea>
+          </div>
+
+          <br>
+          
+          <div class="form__row form__row--submit">
+            <input
+              type="submit"
+              value="Submit"
+              class="form__submit"
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock content %}
