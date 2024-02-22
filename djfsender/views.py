@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.http import HttpResponsePermanentRedirect
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView
+from django.views.generic.detail import DetailView
 
 
 from .service import FileSenderService
@@ -68,3 +69,18 @@ class HomeView(SuccessMessageMixin, CreateView):
 
     def form_invalid(self, form):
         return self.render_to_response(self.get_context_object(form=form))
+
+
+class FileDetails(DetailView):
+    model = FileSender
+    queryset = FileSender.objects.all()
+    template_name = 'form-detail.html'
+    context_object_name = 'file'
+    pk_url_kwarg = 'file_id'
+
+    def get_queryset(self):
+        # get file id
+        id = self.kwargs.get('file_id')
+
+        # return updated querysets
+        return FileSenderService.get_file_details(id)
