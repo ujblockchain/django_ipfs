@@ -222,3 +222,9 @@ AXES_RESET_ON_SUCCESS = config('AXES_RESET_ON_SUCCESS', cast=bool)
 
 # lock user using ip address, username and user agent
 AXES_LOCKOUT_PARAMETERS = config('AXES_LOCKOUT_PARAMETERS', cast=Csv())
+
+
+# pinata credentials
+PINETA_JWT = config('PINETA_JWT')
+PINETA_API_KEY = config('PINETA_API_KEY')
+PINETA_API_SECRET = config('PINETA_API_SECRET')
