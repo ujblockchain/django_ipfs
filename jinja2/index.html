@@ -22,36 +22,23 @@
           Kindly fill file details.
         </p>
 
-        <form class="form job-review__form">
+        <form method="post" enctype='multipart/form-data' class="form job-review__form">
+          {# csrf token #}
+          {{csrf_input}}
+
           <div class="form__row">
-            <input
-              type="text"
-              name="job-id"
-              id="job-id"
-              placeholder="File Name"
-              class="form__field"
-            >
+            {{form.file_name}}
           </div>
+
           <br>
+
           <div class="form__row">
-            <input
-              type="file"
-              id="avatar"
-              name="avatar"
-              class="account-setting__avatar"
-            />
+            {{form.file}}
           </div>
 
           <br>
           <div class="form__row">
-            <textarea
-              name=""
-              id=""
-              cols="10"
-              rows="8"
-              placeholder="File Description"
-              class="form__field form__field--textarea"
-            ></textarea>
+            {{form.file_description}}
           </div>
 
           <br>
