@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main class="job-review">
+    <div class="job-review__wrapper">
+      <div class="job-review__container">
+        <div class="job-review__controls">
+          <div></div>
+
+          <h1 class="title">File Details</h1>
+
+          <a href="#">
+            <img
+              src="{{ static('images/icons/close.webp') }}"
+              alt="close"
+              class="job-request__icon"
+            >
+          </a>
+        </div>
+
+
+        <p class="job-review__text">
+          {% for message in messages %} {{message}} {% endfor %}
+        </p>
+
+        <form class="form job-review__form">
+          <div>
+            <label for="id_name">File Name</label>
+            <input id="id_name" type="text" value="{{file.file_name}}" class="form__field" disabled>
+          </div>
+          <br>
+          <div>
+            <label for="id_file_hash">File Hash</label>
+            <input id="id_file_hash" type="text" value="{{file.file_hash}}" class="form__field" disabled>
+          </div>
+          <br>
+          <div>
+            <label for="id_ipfs_hash">IPFS File Hash</label>
+            <input id="id_ipfs_hash" type="text" value="{{file.ipfs_hash}}" class="form__field" disabled>
+          </div>
+          <br>
+          <div>
+            <label for="id_pin_size">File Pin Size</label>
+            <input id="id_pin_size" type="text" value="{{file.pin_size}}" class="form__field" disabled>
+          </div>
+          <br>
+          <div>
+            <label for="id_pin_time_stampn">Time Stamp</label>
+            <input id="id_pin_time_stampn" type="text" value="{{file.pin_time_stamp}}" class="form__field" disabled>
+          </div>
+          <br>
+          <div>
+            <label for="id_file_descritoon">File Description</label>
+            <textarea id="id_file_descritoon" class="form__field"id="" cols="30" rows="5" disabled>{{file.file_description}}</textarea>
+          </div>
+
+          <br>
+          
+          <div class="form__row form__row--submit">
+            <a href="https://filecity.mypinata.cloud/ipfs/{{file.ipfs_hash}}" target="_blank" class="form__submit"
+            style="width:fit-content;">View File in IPFS</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock content %}
