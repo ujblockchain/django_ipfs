@@ -74,7 +74,7 @@ class HomeView(SuccessMessageMixin, CreateView):
 class FileDetails(DetailView):
     model = FileSender
     queryset = FileSender.objects.all()
-    template_name = 'form-detail.html'
+    template_name = 'file-detail.html'
     context_object_name = 'file'
     pk_url_kwarg = 'file_id'
 
