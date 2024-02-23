@@ -12,8 +12,8 @@ class FileSenderService:
         return get_random_file_name(16)
 
     @staticmethod
-    def upload_to_media_root(file, file_name):
-        file_to_media_root(file, file_name)
+    def upload_to_media_root(file, file_name, file_extension):
+        file_to_media_root(file, file_name, file_extension)
 
     @staticmethod
     def get_object_hash(object_string):
