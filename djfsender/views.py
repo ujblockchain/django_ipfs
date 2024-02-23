@@ -39,10 +39,16 @@ class HomeView(SuccessMessageMixin, CreateView):
         if not check_if_hash_exist:
             # set file name
             file_name = FileSenderService.get_file_name()
-            FileSenderService.upload_to_media_root(formfile, file_name)
+            # set file extension
+            # this is need to make the file extension of saved file dynamic
+            # based on the uploaded file
+            uploaded_file_extension = formfile.content_type.split('/')
+            file_extension = uploaded_file_extension[len(uploaded_file_extension) - 1]
+
+            FileSenderService.upload_to_media_root(formfile, file_name, file_extension)
 
             # set file path
-            file_path = f'{settings.MEDIA_ROOT}/{file_name}.png'
+            file_path = f'{settings.MEDIA_ROOT}/{file_name}.{file_extension}'
             # Upload file to ipfs
             file = FileSenderService.ipfs_pin_file(file_name, file_path)
             # convert json to dict
