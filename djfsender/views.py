@@ -19,13 +19,12 @@ class HomeView(SuccessMessageMixin, CreateView):
     template_name = 'index.html'
 
     def form_valid(self, form):
-        # init file name
+        # init file name, file_hash and hash check
         file_name = ''
         file_stream_hash = ''
         check_if_hash_exist = ''
-        # save file to media root
 
-        # if not FileSenderService.check_hash_exist("5774h74")
+        # loop through uploaded files
         for field in self.request.FILES.keys():
             for formfile in self.request.FILES.getlist(field):
                 # check if the file hash already exits
@@ -40,18 +39,19 @@ class HomeView(SuccessMessageMixin, CreateView):
             # set file name
             file_name = FileSenderService.get_file_name()
             # set file extension
-            # this is need to make the file extension of saved file dynamic
+            # this is needed to make the file extension of saved file dynamic
             # based on the uploaded file
             uploaded_file_extension = formfile.content_type.split('/')
             file_extension = uploaded_file_extension[len(uploaded_file_extension) - 1]
 
+            # save file to media root
             FileSenderService.upload_to_media_root(formfile, file_name, file_extension)
 
             # set file path
             file_path = f'{settings.MEDIA_ROOT}/{file_name}.{file_extension}'
             # Upload file to ipfs
             file = FileSenderService.ipfs_pin_file(file_name, file_path)
-            # convert json to dict
+            # convert json to dictionary
             file_dict_response = json.loads(file)
 
             # save model
@@ -73,6 +73,7 @@ class HomeView(SuccessMessageMixin, CreateView):
             )
         )
 
+    # if form is invalid, return it
     def form_invalid(self, form):
         return self.render_to_response(self.get_context_object(form=form))
 

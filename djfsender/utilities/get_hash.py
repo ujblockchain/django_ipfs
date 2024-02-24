@@ -1,7 +1,7 @@
 import hashlib
 
-# finding the SHA-1 message digest of a file
-# This function returns the SHA-1 hash of the file passed into it"""
+# finding the SHA-256 message digest of a file
+# This function returns the SHA-256 hash of the byte string passed into it"""
 
 
 def object_hash(object_string):

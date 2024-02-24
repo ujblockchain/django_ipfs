@@ -1,6 +1,7 @@
 import requests
 from django.conf import settings
 
+# init upload url
 url = 'https://api.pinata.cloud/pinning/pinFileToIPFS'
 
 
