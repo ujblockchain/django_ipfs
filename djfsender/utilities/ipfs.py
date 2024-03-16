@@ -4,11 +4,9 @@ from django.conf import settings
 # init upload url
 url = 'https://api.pinata.cloud/pinning/pinFileToIPFS'
 
-# authenticate to pineta
-auth_url = 'https://api.pinata.cloud/data/testAuthentication'
+#init payloads and header
 payload = {}
 headers = {'Authorization': f'Bearer {settings.PINETA_JWT}'}
-response = requests.request('GET', auth_url, headers=headers, data=payload)
 
 
 def pin_file(file_name, file_location):
@@ -20,8 +18,6 @@ def pin_file(file_name, file_location):
     }
 
     files = [('file', (file_name, open(file_location, 'rb'), 'application/octet-stream'))]
-
-    headers = {'Authorization': f'Bearer {settings.PINETA_JWT}'}
 
     response = requests.request('POST', url, headers=headers, data=payload, files=files)
 
