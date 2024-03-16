@@ -6,7 +6,7 @@ South Africa-Switzerland Bilateral Research Chair in Blockchain Technology (UJ B
 
 ## About Project.
 
-DJIPFS uses django and PInata to store files in IPFS (Interplanetary File System). Files are first checked using SHA256 to check their hash using file byte string in memory before saving to a local directory. This is done to prevent duplicate in the media root. If a file has not been uploaded before after checking their unique hash, they are then uploaded to IPFS using Pinata API with a copy in the media root. The corresponding ipfs hash, pin size and timestamp are then save to the database along with other details. This project uses the pinata IPFS gateway to lookup files but you can use other gateways like Cloudflare IPFS gateway
+DJIPFS uses django and Pinata to store files in IPFS (Interplanetary File System). Files are first checked using SHA256 to verify their hash using file byte string in memory before saving to a local directory. This is done to prevent duplicate in the media root. If a file has not been uploaded before after checking their unique hash, they are then uploaded to IPFS using Pinata API with a copy in the media root. The corresponding ipfs hash, pin size and timestamp are then save to the database along with other details. This project uses the pinata IPFS gateway to lookup files but you can use other gateways like Cloudflare IPFS gateway
 
 ## Setup
 
