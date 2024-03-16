@@ -38,7 +38,7 @@ class FileSenderService:
         file_description,
         time_stamp,
     ):
-        return FileSender.objects.create(
+        FileSender.objects.create(
             file_name=file_name,
             file_hash=file_hash,
             file=file_path,
