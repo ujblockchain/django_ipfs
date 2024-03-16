@@ -71,7 +71,7 @@ class HomeView(SuccessMessageMixin, CreateView):
 
     # if form is invalid, return it
     def form_invalid(self, form):
-        return self.render_to_response(self.get_context_object(form=form))
+        return self.render_to_response(self.get_context_data(form=form))
 
 
 class FileDetails(DetailView):
