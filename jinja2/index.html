@@ -29,17 +29,26 @@
           <div class="form__row">
             {{form.file_name}}
           </div>
+          {% if form.errors and form.errors.file_name is defined %}
+            <span style="font-size: 13px; color: red; font-style:italic;">{{form.errors.file_name|striptags}}</span>
+          {% endif %}
 
           <br>
 
           <div class="form__row">
             {{form.file}}
           </div>
+          {% if form.errors and form.errors.file is defined %}
+            <span style="font-size: 13px; color: red; font-style:italic;">{{form.errors.file|striptags}}</span>
+          {% endif %}
 
           <br>
           <div class="form__row">
             {{form.file_description}}
           </div>
+          {% if form.errors and form.errors.file_description is defined %}
+            <span style="font-size: 13px; color: red; font-style:italic;">{{form.errors.file_description|striptags}}</span>
+          {% endif %}
 
           <br>
           
